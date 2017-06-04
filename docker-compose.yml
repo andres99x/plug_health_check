@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: /bin/bash
+    volumes:
+    - .:/var/www
+
+
