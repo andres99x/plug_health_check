@@ -1,19 +1,69 @@
 # PlugHealthCheck
 
-**TODO: Add description**
+Health Check endpoint plug.
+
+Responds with status **200 OK** and body `OK` to `GET` requests at an especific path.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `plug_health_check` to your list of dependencies in `mix.exs`:
+Add `plug_health_check` to your dependency list in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:plug_health_check, "~> 0.1.0"}]
+  [{:plug_health_check, "~> 0.0.1"}]
+end
+```
+## Docs
+
+Docs can be found at [https://hexdocs.pm/plug_health_check](https://hexdocs.pm/plug_health_check).
+
+## Usage
+
+Plug it into your pipeline:
+
+```elixir
+defmodule WebApp do
+  use Plug.builder
+  plug PlugHealthCheck
+
+  # ... rest of the code
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/plug_health_check](https://hexdocs.pm/plug_health_check).
+Customize the path with the `:path` option (default: `/health/check`):
 
+```elixir
+defmodule WebApp do
+  use Plug.builder
+  plug PlugHealthCheck, plug: "/health"
+
+  # ... resto of the code
+end
+```
+
+## Contibuting
+
+Everyone is welcome to contribute and help it improve!
+
+### Development
+
+#### w/Docker
+
+Requirements:
+- docker
+- docker-compose
+
+Build the container image with:
+```
+$ docker-compose build web
+```
+
+Open a shell to the container to start working with mix:
+```
+$ docker-compose run --rm web /bin/bash
+```
+
+Run test with:
+```
+$ docker-compose run web
+```
