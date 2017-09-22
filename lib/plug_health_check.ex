@@ -1,7 +1,7 @@
 defmodule PlugHealthCheck do
   @default_opts [path: "/health/check"]
 
-  @moduledoce """
+  @moduledoc """
   Health Check endpoint plug.
 
   Responds with status **200 OK** and body `OK` to `GET` requests at an especific path.
