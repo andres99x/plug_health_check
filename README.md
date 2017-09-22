@@ -1,5 +1,7 @@
 # PlugHealthCheck
 
+[![Build Status](https://travis-ci.org/andres99x/plug_health_check.svg?branch=master)](https://travis-ci.org/andres99x/plug_health_check)
+
 Health Check endpoint plug.
 
 Responds with status **200 OK** and body `OK` to `GET` requests at an especific path.
